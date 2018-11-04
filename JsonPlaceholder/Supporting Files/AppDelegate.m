@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#include "CoreDataContainer.h"
+#include "UsersTableviewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    CoreDataContainer* coreDataContainer = [CoreDataContainer sharedCoreDataContainer];
+    UsersTableViewController* usersTableVc = (UsersTableViewController*)((UINavigationController*)self.window.rootViewController).topViewController;
+    usersTableVc.apiDataProvider = [[ApiDataProvider alloc] initWith: coreDataContainer.container dataModel: [RequestWrapper sharedRequestWrapper]];
+    
     return YES;
 }
 

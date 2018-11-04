@@ -8,41 +8,67 @@
 
 #import "UsersViewModel.h"
 #import <UIKit/UITableView.h>
-#import "DataModel.h"
+#include "CoreDataContainer.h"
+
 @interface UsersViewModel()
-@property(nonatomic, strong, readonly) DataModel* dataModel;
+@property NSFetchedResultsController* controller;
+
 @end
 
 @implementation UsersViewModel
 
--(instancetype)initWithDataModel:(DataModel *)dataModel {
-    self = [super init];
-    if (!self) return nil;
-    _dataModel = dataModel;
-    return self;
-    
-}
-
 -(instancetype)init {
+    
     self = [super init];
     if (!self) return nil;
-    _dataModel = [DataModel sharedDataModel];
-    [_dataModel getUsers];
+    [self setContextParameters];
     return self;
-    
 }
 
 -(NSUInteger)numberOfRowsInsection:(NSInteger)section {
-    return _dataModel.users.count;
+    
+    return self.controller.fetchedObjects.count;
 }
 
 -(NSString*)titleOfCellAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellTitle = _dataModel.users[indexPath.row][@"name"];
+    
+    NSString *cellTitle = @"";
+    NSArray* fetchOjects = [self.controller fetchedObjects];
+    if (fetchOjects.count != 0) {
+        NSManagedObject* userObject = [fetchOjects objectAtIndex:indexPath.row];
+        NSArray *keys = [[[userObject entity] attributesByName] allKeys];
+        NSDictionary *userObjectDict = [userObject dictionaryWithValuesForKeys:keys];
+        cellTitle =  userObjectDict[@"name"];
+    }
     return cellTitle;
 }
 
 -(NSUInteger)userIdAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger userId = [_dataModel.users[indexPath.row][@"id"] integerValue];
+    
+    NSArray* fetchOjects = [self.controller fetchedObjects];
+    NSManagedObject* userObject = [fetchOjects objectAtIndex:indexPath.row];
+    NSArray *keys = [[[userObject entity] attributesByName] allKeys];
+    NSDictionary *userObjectDict = [userObject dictionaryWithValuesForKeys:keys];
+    NSUInteger userId = [userObjectDict[@"id"] longValue];
     return userId;
 }
+
+-(void)setContextParameters {
+    
+    CoreDataContainer* coreDataContainer = [CoreDataContainer sharedCoreDataContainer];
+    self.apiDataProvider = [[ApiDataProvider alloc] initWith: coreDataContainer.container dataModel: [RequestWrapper sharedRequestWrapper]];
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSSortDescriptor *sortDescriptors = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:sortDescriptors];
+    self.controller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.apiDataProvider.ppersistentContainer.viewContext sectionNameKeyPath:nil cacheName:nil];
+    self.controller.delegate = self;
+    NSError *error;
+    [self.controller performFetch:&error];
+}
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NsUSERSNOTIFICATION object:self];
+}
+
 @end

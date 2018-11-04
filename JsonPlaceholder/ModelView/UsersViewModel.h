@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface UsersViewModel : NSObject
+#import "ApiDataProvider.h"
+
+@interface UsersViewModel : NSObject<NSFetchedResultsControllerDelegate>
+@property(nonatomic, strong, readwrite) ApiDataProvider *apiDataProvider;
+
 -(instancetype)init;
 -(NSUInteger)numberOfRowsInsection:(NSInteger)section;
 -(NSString*)titleOfCellAtIndexPath:(NSIndexPath *)indexPath;
 -(NSUInteger)userIdAtIndexPath:(NSIndexPath *)indexPath;
+
 @end

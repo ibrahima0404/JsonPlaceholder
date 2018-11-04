@@ -7,8 +7,8 @@
 //
 
 #import "AlbumsTableViewController.h"
-#import "DataModel.h"
 #import "AlbumsAndPostsViewModel.h"
+
 @interface AlbumsTableViewController () {
     AlbumsAndPostsViewModel *albumsAndPostsViewModel;
 }
@@ -17,37 +17,45 @@
 @implementation AlbumsTableViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     albumsAndPostsViewModel = [[AlbumsAndPostsViewModel alloc] init];
+    [albumsAndPostsViewModel.apiDataProvider fetchAlbums:^(NSError *error) {
+    }];
+    [albumsAndPostsViewModel.apiDataProvider fetchPosts:^(NSError *error) {
+    }];
+    //self.tableView.delegate = self;
+    //self.tableView.dataSource = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(arrAlbumsLoaded) name:NsALBUMSSNOTIFICATION object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(arrPostsLoaded) name:NsPOSTSNOTIFICATION object:nil];
-    
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     return 2;
 }
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
     return [albumsAndPostsViewModel titleForSection:section];
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [albumsAndPostsViewModel numberOfRowsInSection:section];
     
+    return [albumsAndPostsViewModel numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
     cell.textLabel.text = [albumsAndPostsViewModel titleOfCellAtIndexPath:indexPath];
     return cell;
 }
 
 -(void)arrAlbumsLoaded {
+    
     [albumsAndPostsViewModel albumsWithUserId:_userId];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -55,11 +63,11 @@
 }
 
 -(void)arrPostsLoaded {
+    
     [albumsAndPostsViewModel postsWithUserId:_userId];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
 }
-
 
 @end

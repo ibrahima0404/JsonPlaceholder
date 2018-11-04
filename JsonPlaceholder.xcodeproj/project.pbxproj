@@ -12,13 +12,16 @@
 		86DD4F7620D86F01004B6784 /* AlbumsAndPostsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DD4F7520D86F01004B6784 /* AlbumsAndPostsViewModel.m */; };
 		86EAB4AB20D6C21000E5ED8A /* UsersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EAB4AA20D6C21000E5ED8A /* UsersViewModel.m */; };
 		86F269E920D313ED00397D83 /* AlbumsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F269E820D313ED00397D83 /* AlbumsTableViewController.m */; };
+		86F8FDDC218B388900E6FE56 /* DataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86F8FDDA218B388900E6FE56 /* DataStorage.xcdatamodeld */; };
+		86F8FE26218B782500E6FE56 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F8FE25218B782500E6FE56 /* CoreData.framework */; };
+		86F8FE29218D23E300E6FE56 /* CoreDataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F8FE28218D23E300E6FE56 /* CoreDataContainer.m */; };
+		86F8FE2D218DA84B00E6FE56 /* ApiDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 86F8FE2C218DA84B00E6FE56 /* ApiDataProvider.m */; };
 		8F57BCB720D2725700898A97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F57BCB620D2725700898A97 /* AppDelegate.m */; };
 		8F57BCBD20D2725700898A97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F57BCBB20D2725700898A97 /* Main.storyboard */; };
 		8F57BCBF20D2725C00898A97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F57BCBE20D2725C00898A97 /* Assets.xcassets */; };
 		8F57BCC220D2725C00898A97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F57BCC020D2725C00898A97 /* LaunchScreen.storyboard */; };
 		8F57BCC520D2725C00898A97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F57BCC420D2725C00898A97 /* main.m */; };
 		8F57BCD020D288C000898A97 /* UsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F57BCCF20D288C000898A97 /* UsersTableViewController.m */; };
-		8F57BCD320D28CDC00898A97 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F57BCD220D28CDC00898A97 /* DataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,12 @@
 		86EAB4AA20D6C21000E5ED8A /* UsersViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsersViewModel.m; sourceTree = "<group>"; };
 		86F269E720D313ED00397D83 /* AlbumsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlbumsTableViewController.h; sourceTree = "<group>"; };
 		86F269E820D313ED00397D83 /* AlbumsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbumsTableViewController.m; sourceTree = "<group>"; };
+		86F8FDDB218B388900E6FE56 /* DataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataStorage.xcdatamodel; sourceTree = "<group>"; };
+		86F8FE25218B782500E6FE56 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		86F8FE27218D23E300E6FE56 /* CoreDataContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataContainer.h; sourceTree = "<group>"; };
+		86F8FE28218D23E300E6FE56 /* CoreDataContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataContainer.m; sourceTree = "<group>"; };
+		86F8FE2B218DA84B00E6FE56 /* ApiDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiDataProvider.h; sourceTree = "<group>"; };
+		86F8FE2C218DA84B00E6FE56 /* ApiDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiDataProvider.m; sourceTree = "<group>"; };
 		8F57BCB220D2725700898A97 /* JsonPlaceholder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsonPlaceholder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F57BCB520D2725700898A97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8F57BCB620D2725700898A97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -41,8 +50,6 @@
 		8F57BCC420D2725C00898A97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8F57BCCE20D288C000898A97 /* UsersTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsersTableViewController.h; sourceTree = "<group>"; };
 		8F57BCCF20D288C000898A97 /* UsersTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsersTableViewController.m; sourceTree = "<group>"; };
-		8F57BCD120D28CDC00898A97 /* DataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
-		8F57BCD220D28CDC00898A97 /* DataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86F8FE26218B782500E6FE56 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,10 +67,12 @@
 		864E6E8E21571531001FADCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				86F8FE2B218DA84B00E6FE56 /* ApiDataProvider.h */,
+				86F8FE2C218DA84B00E6FE56 /* ApiDataProvider.m */,
 				86A0AC4B20DADB9D00273DA0 /* RequestWrapper.h */,
+				86F8FE27218D23E300E6FE56 /* CoreDataContainer.h */,
+				86F8FE28218D23E300E6FE56 /* CoreDataContainer.m */,
 				86A0AC4C20DADB9D00273DA0 /* RequestWrapper.m */,
-				8F57BCD120D28CDC00898A97 /* DataModel.h */,
-				8F57BCD220D28CDC00898A97 /* DataModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,8 +109,17 @@
 				8F57BCC020D2725C00898A97 /* LaunchScreen.storyboard */,
 				8F57BCC320D2725C00898A97 /* Info.plist */,
 				8F57BCC420D2725C00898A97 /* main.m */,
+				86F8FDDA218B388900E6FE56 /* DataStorage.xcdatamodeld */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86F8FE24218B782500E6FE56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86F8FE25218B782500E6FE56 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8F57BCA920D2725700898A97 = {
@@ -109,6 +128,7 @@
 				864E6E9221571789001FADCF /* Default-568h@2x.png */,
 				8F57BCB420D2725700898A97 /* JsonPlaceholder */,
 				8F57BCB320D2725700898A97 /* Products */,
+				86F8FE24218B782500E6FE56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,14 +222,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86F8FDDC218B388900E6FE56 /* DataStorage.xcdatamodeld in Sources */,
 				86DD4F7620D86F01004B6784 /* AlbumsAndPostsViewModel.m in Sources */,
+				86F8FE29218D23E300E6FE56 /* CoreDataContainer.m in Sources */,
 				86F269E920D313ED00397D83 /* AlbumsTableViewController.m in Sources */,
 				86EAB4AB20D6C21000E5ED8A /* UsersViewModel.m in Sources */,
 				8F57BCD020D288C000898A97 /* UsersTableViewController.m in Sources */,
+				86F8FE2D218DA84B00E6FE56 /* ApiDataProvider.m in Sources */,
 				8F57BCC520D2725C00898A97 /* main.m in Sources */,
 				86A0AC4D20DADB9D00273DA0 /* RequestWrapper.m in Sources */,
 				8F57BCB720D2725700898A97 /* AppDelegate.m in Sources */,
-				8F57BCD320D28CDC00898A97 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +423,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		86F8FDDA218B388900E6FE56 /* DataStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				86F8FDDB218B388900E6FE56 /* DataStorage.xcdatamodel */,
+			);
+			currentVersion = 86F8FDDB218B388900E6FE56 /* DataStorage.xcdatamodel */;
+			path = DataStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8F57BCAA20D2725700898A97 /* Project object */;
 }

@@ -18,5 +18,5 @@ typedef void(^CustomCallback)(NSData *taskData, NSURLResponse *response, NSError
 @end
 
 @interface RequestWrapper : NSObject<HttpProtocol>
-
++(RequestWrapper*)sharedRequestWrapper;
 @end

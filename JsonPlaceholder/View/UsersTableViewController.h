@@ -7,5 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ApiDataProvider.h"
+
 @interface UsersTableViewController : UITableViewController<UITableViewDataSource>
+@property(nonatomic, strong, readwrite) ApiDataProvider *apiDataProvider;
 @end

@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DataModel.h"
-@interface AlbumsAndPostsViewModel : NSObject
+#import "ApiDataProvider.h"
+
+@interface AlbumsAndPostsViewModel : NSObject<NSFetchedResultsControllerDelegate>
 -(instancetype)init;
 -(NSUInteger)numberOfRowsInSection:(NSInteger)section;
 -(NSString*)titleOfCellAtIndexPath:(NSIndexPath*)indexPath;
 -(NSString*)titleForSection:(NSInteger)section;
 -(void)albumsWithUserId:(NSUInteger)userId;
 -(void)postsWithUserId:(NSUInteger)userId;
+@property(nonatomic, strong, readwrite) ApiDataProvider *apiDataProvider;
 @end

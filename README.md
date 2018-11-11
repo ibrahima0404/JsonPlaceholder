@@ -1,4 +1,5 @@
 #JsonPlaceholder
+
 This sample shows how to fetch data from an API and make it persistent in the APP. 
 
 #Notes

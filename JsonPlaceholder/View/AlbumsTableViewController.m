@@ -24,6 +24,8 @@
     }];
     [albumsAndPostsViewModel.apiDataProvider fetchPosts:^(NSError *error) {
     }];
+    [albumsAndPostsViewModel albumsWithUserId:_userId];
+    [albumsAndPostsViewModel postsWithUserId:_userId];
     //self.tableView.delegate = self;
     //self.tableView.dataSource = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(arrAlbumsLoaded) name:NsALBUMSSNOTIFICATION object:nil];

@@ -24,8 +24,8 @@
     
     self = [super init];
     if (!self) return nil;
-    [self setContextParameters];
-    [self setContextParameters1];
+    [self setContextAlbums];
+    [self setContextPosts];
     return self;
 }
 
@@ -93,7 +93,7 @@
     posts = array;
 }
 
--(void)setContextParameters {
+-(void)setContextAlbums {
     
     CoreDataContainer* coreDataContainer = [CoreDataContainer sharedCoreDataContainer];
     self.apiDataProvider = [[ApiDataProvider alloc] initWith: coreDataContainer.container dataModel: [RequestWrapper sharedRequestWrapper]];
@@ -106,7 +106,7 @@
     [self.controllerAblum performFetch:&error];
 }
 
--(void)setContextParameters1 {
+-(void)setContextPosts {
     
     CoreDataContainer* coreDataContainer = [CoreDataContainer sharedCoreDataContainer];
     self.apiDataProvider = [[ApiDataProvider alloc] initWith: coreDataContainer.container dataModel: [RequestWrapper sharedRequestWrapper]];
